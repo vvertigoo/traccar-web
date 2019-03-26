@@ -19,7 +19,7 @@
 Ext.define('Traccar.DeviceImages', {
     singleton: true,
 
-    getImageSvg: function (color, zoom, angle, category) {
+    getImageSvg: function (color, zoom, angle, category, overrideColor) {
         var i, info, svg, width, height, rotateTransform, scaleTransform, fill;
 
         info = Ext.getStore('DeviceImages').findRecord('key', category || 'default', 0, false, false, true);
@@ -36,7 +36,7 @@ Ext.define('Traccar.DeviceImages', {
             fill = [fill];
         }
         for (i = 0; i < fill.length; i++) {
-            svg.getElementById(fill[i]).style.fill = color;
+            svg.getElementById(fill[i]).style.fill = category === "arrow" && zoom ? "#FF0000" : color;
         }
 
         rotateTransform = 'rotate(' + angle + ' ' + width / 2 + ' ' + height / 2 + ')';
