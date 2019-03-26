@@ -5,5 +5,8 @@
     },
     "scripts": {
         "lint": "./node_modules/.bin/eslint web/."
+    },
+    "dependencies": {
+        "@sencha/ext": "^6.6.0"
     }
 }
